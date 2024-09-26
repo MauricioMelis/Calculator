@@ -3,13 +3,18 @@ package com.example.calculadora
 import android.os.Bundle
 import android.util.Log
 import android.widget.EditText
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.filament.View
+import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
+    lateinit var pantalla:TextView
+    lateinit var textoPantalla:String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -19,14 +24,7 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-        fun onLogin(view: android.view.View){
-            Log.i("AD_C5", "onLogin")
-            var firstNumber = findViewById<EditText>(R.id.et_firstNumber)
-            var secondNumber = findViewById<EditText>(R.id.et_secondNumber)
-            var user = Usuari(username.text.toString(),userpass.text.toString())
-            Log.i("AD_C5", "onLogin: usuari" + user.toString())
-
-        }
+        pantalla = findViewById<TextView>(R.id.etShowNumber)
+        textoPantalla = pantalla.text.toString()
     }
     }
